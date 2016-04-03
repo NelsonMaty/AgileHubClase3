@@ -1,0 +1,23 @@
+{
+  "name": "Clase3",
+  "description": "Ejercicio de la clase 3",
+  "main": "index.html",
+  "authors": [
+    "Nelson Ríos"
+  ],
+  "license": "GNU",
+  "keywords": [
+    "AgileHub",
+    "Javascript",
+    "AngularJS"
+  ],
+  "homepage": "https://github.com/NelsonMaty/AgileHubClase3",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
