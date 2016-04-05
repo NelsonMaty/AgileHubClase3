@@ -1,13 +1,17 @@
 <!doctype html>
 
-<html>
+<html ng-app='todo'>
   <head>
     <meta charset="utf-8">
     <title>Clase 3 - Ejercicio</title>
     <link rel="stylesheet" href="/dist/css/angularProject.css">
   </head>
-  <body>
-    HOLA YO
-    <script type="text/javascript" src='/dist/js/angularProject.min.js'></script>
+  <body >
+    <div ui-view>
+
+    </div>
+    <script type="text/javascript" src='/bower_components/angular/angular.min.js' ></script>
+    <script type="text/javascript" src='/bower_components/angular-ui-router/release/angular-ui-router.min.js'></script>
+    <script type="text/javascript" src='/dist/js/angularProject.js'></script>
   </body>
 </html>
