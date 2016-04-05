@@ -3,18 +3,27 @@
 
     angular
         .module('app.viewToDo')
-        .controller('Controller', Controller);
+        .controller('viewController', viewController);
 
-    Controller.$inject = ['datafactory'];
+    viewController.$inject = ['datafactory'];
 
-    /* @ngInject */
-    function Controller(datafactory) {
+    function viewController(datafactory) {
         var vm = this;
+
+        vm.toDos = [];
 
         activate();
 
-        function activate() {
-          console.log(datafactory.getToDos());
+        ///////////////////////////////////
+
+        function activate(){
+          vm.toDos = getToDos();
         }
+
+        function getToDos() {
+          return datafactory.getToDos();
+        }
+
+        
     }
 })();
