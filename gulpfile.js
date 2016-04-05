@@ -51,7 +51,8 @@ gulp.task('watch', function() {
     gulp.watch('app/**/*.js', ['lint', 'scripts']);
     gulp.watch(['*.html', 'app/**/*.html'], ['html']);
     gulp.watch('app/**/*.scss', ['sass']);
-    gulp.watch('dist/**/*.*', ['compress']);
+    gulp.watch('dist/js/angularProject.js', ['compress-js']);
+    gulp.watch('dist/css/angularProject.css', ['compress-css']);
 });
 
 gulp.task('compress-js', function() {
@@ -83,14 +84,15 @@ var browser = os.platform() === 'linux' ? 'google-chrome' : (
 
 gulp.task('open', function(){
   gulp.src('./index.html')
-  .pipe(open({app: browser}));
+  .pipe(open({app: browser, uri: 'http://localhost:9000/'}));
 });
-
-
-// Default Task
-gulp.task('default', ['lint', 'sass', 'scripts']);
 
 // Compress Task
 gulp.task('compress', ['compress-js', 'compress-css']);
 
-gulp.task('serve', ['default', 'compress', 'connect', 'watch', 'open']);
+// Default Task
+gulp.task('default', ['lint', 'sass', 'scripts'], function () {
+  gulp.run('compress');
+});
+
+gulp.task('serve', ['default', 'connect', 'watch', 'open']);
