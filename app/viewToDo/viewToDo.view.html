@@ -1,7 +1,7 @@
 <md-content class="md-padding background-gray " layout="row" layout-align='space-around start '>
   <div layout="row" flex='45' layout-wrap >
-    <h1 flex='50' flex-offset='30'>Tareas por Hacer</h1>
-    <md-card ng-repeat="task in vm.toDos | filter: !!isDone" flex="auto">
+    <h1 flex='100' class="md-display-1">Para hacer</h1>
+    <md-card ng-repeat="task in vm.toDos | filter: !!isDone" flex="auto" ng-style="{'background-color' : task.color}">
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">{{task.titulo}}</span>
@@ -10,13 +10,13 @@
       </md-card-title>
       <md-card-actions layout="row" layout-align="end center">
         <md-button>Editar</md-button>
-        <md-button>Hecho</md-button>
+        <md-button ng-click="vm.markAsDone(task)">Hecho</md-button>
       </md-card-actions>
     </md-card>
   </div>
   <div layout="row" flex='45' layout-wrap>
-    <h1 flex='50' flex-offset='30'>Tareas Hechas</h1>
-    <md-card ng-repeat="task in vm.toDos | filter: !isDone" flex="auto">
+    <h1 flex='100' class="md-display-1">Hechas</h1>
+    <md-card ng-repeat="task in vm.toDos | filter: !isDone" flex="auto" ng-style="{'background-color' : task.color}">
       <md-card-title>
         <md-card-title-text>
           <span class="md-headline">{{task.titulo}}</span>

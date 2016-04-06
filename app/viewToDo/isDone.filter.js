@@ -6,7 +6,7 @@
         .filter('isDone', filter);
 
     function filter() {
-        return filterFilter
+        return filterFilter;
 
         function filterFilter(item) {
             return item.done===false;

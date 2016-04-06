@@ -11,6 +11,7 @@
         var vm = this;
 
         vm.toDos = [];
+        vm.markAsDone = markAsDone;
 
         activate();
 
@@ -21,9 +22,13 @@
         }
 
         function getToDos() {
+          console.log('traigo todos');
           return datafactory.getToDos();
         }
 
-        
+        function markAsDone (task){
+          console.log(task);
+          datafactory.markAsDone(task.id);
+        }
     }
 })();

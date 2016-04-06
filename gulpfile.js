@@ -4,6 +4,7 @@ var sass = require('gulp-sass');
 var connect = require('gulp-connect');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var sourcemaps = require('gulp-sourcemaps');
 var rename = require("gulp-rename");
 var os = require('os');
 var open = require('gulp-open');
@@ -19,7 +20,9 @@ gulp.task('connect', function() {
 // Concat JS task
 gulp.task('scripts', function() {
     return gulp.src(['app/**/*.module.js', 'app/**/*.js'])
+        .pipe(sourcemaps.init())
         .pipe(concat('angularProject.js'))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist/js'))
         .pipe(connect.reload());
 });
