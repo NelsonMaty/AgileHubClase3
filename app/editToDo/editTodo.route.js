@@ -8,7 +8,13 @@
       $stateProvider
       .state('edit', {
         url: "/edit",
-        templateUrl: "app/editToDo/editToDo.view.html"
+        params: {
+          toDoId: null
+        },
+        templateUrl: "app/editToDo/editToDo.view.html",
+        controller: 'editController',
+        controllerAs: 'vm',
+        title: 'Edición de tarea'
       });
     }
 }());

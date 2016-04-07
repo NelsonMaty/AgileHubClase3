@@ -5,13 +5,14 @@
         .module('app.viewToDo')
         .controller('viewController', viewController);
 
-    viewController.$inject = ['datafactory'];
+    viewController.$inject = ['datafactory', '$state'];
 
-    function viewController(datafactory) {
+    function viewController(datafactory, $state) {
         var vm = this;
 
         vm.toDos = [];
         vm.markAsDone = markAsDone;
+        vm.editToDo = editToDo;
 
         activate();
 
@@ -22,13 +23,21 @@
         }
 
         function getToDos() {
-          console.log('traigo todos');
           return datafactory.getToDos();
         }
 
         function markAsDone (task){
           console.log(task);
           datafactory.markAsDone(task.id);
+        }
+
+        function editToDo(task) {
+          $state.go(
+            'edit',
+            {
+              toDoId: task.id
+            }
+          );
         }
     }
 })();

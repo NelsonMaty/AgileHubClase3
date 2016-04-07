@@ -9,7 +9,7 @@
         </md-card-title-text>
       </md-card-title>
       <md-card-actions layout="row" layout-align="end center">
-        <md-button>Editar</md-button>
+        <md-button ng-click="vm.editToDo(task)">Editar</md-button>
         <md-button ng-click="vm.markAsDone(task)">Hecho</md-button>
       </md-card-actions>
     </md-card>
@@ -29,4 +29,12 @@
       </md-card-actions>
     </md-card>
   </div>
+
+  <md-button class="md-fab floating-button" aria-label="Crear tarea" ui-sref='new'>
+      <md-tooltip md-direction="left">
+          Crear tarea
+        </md-tooltip>
+      <md-icon md-font-set="material-icons">create</md-icon>
+  </md-button>
+
 </md-content>

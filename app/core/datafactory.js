@@ -83,12 +83,17 @@
           }
         ];
 
+        var generateId = 100;
+
         var factory = {
             getToDos: getToDos,
             removeToDo: removeToDo,
             editToDo: editToDo,
             addToDo: addToDo,
-            markAsDone: markAsDone
+            markAsDone: markAsDone,
+            getToDoById: getToDoById,
+            updateToDo: updateToDo,
+            saveToDo: saveToDo
         };
 
         return factory;
@@ -96,7 +101,6 @@
         ////////////////////////////
 
         function getToDos() {
-          console.log(todos);
           return todos;
         }
 
@@ -133,5 +137,30 @@
             }
           }
         }
+
+        function getToDoById(id) {
+          var toDo = null;
+          for (var i = 0; i < todos.length; i++) {
+            if (todos[i].id === id) {
+              toDo = todos[i];
+              break;
+            }
+          }
+          return toDo;
+      }
+
+      function updateToDo(todo) {
+        for (var i = 0; i < todos.length; i++) {
+          if (todos[i].id === todo.id) {
+            todos.splice(i, 1, todo);
+            break;
+          }
+        }
+      }
+
+      function saveToDo(todo) {
+        todo.id = generateId++;
+        todos.unshift(todo);
+      }
     }
 })();
