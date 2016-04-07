@@ -1,5 +1,4 @@
 (function() {
-    'use strict';
 
     angular
         .module('app.viewToDo')
@@ -7,6 +6,7 @@
 
     viewController.$inject = ['datafactory', '$state'];
 
+    /* @ngInject */
     function viewController(datafactory, $state) {
         var vm = this;
 
