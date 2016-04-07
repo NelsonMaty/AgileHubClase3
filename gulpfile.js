@@ -60,7 +60,10 @@ gulp.task('watch', function() {
 
 gulp.task('compress-js', function() {
   return gulp.src('dist/**/*.js')
-    .pipe(uglify())
+    .pipe(uglify().on('error', function(e){
+            console.log("Error: ", e.message);
+            console.log("Line: ", e.lineNumber);
+         }))
     .pipe(rename("angularProject.min.js"))
     .pipe(gulp.dest('dist/js'));
 });
